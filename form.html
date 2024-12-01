@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register Form</title>
+    <style>
+        /* Basic reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('/background%20image%20for%20tech%20bazar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;  /* Fix background image */
+            color: #333;
+        }
+
+        /* Center the form using Flexbox */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            padding: 0 20px; /* Padding to avoid overflow on smaller screens */
+        }
+
+        /* Form Box Styling */
+        .form-box {
+            background: #e0f7fa; /* Pale cyan/blue for form background */
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0277bd; /* Dark cyan for headings */
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #0277bd; /* Dark cyan for labels */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #26a69a; /* Teal button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00796b; /* Darker teal on hover */
+        }
+
+        .toggle-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9800; /* Orange for toggle button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .toggle-button:hover {
+            background-color: #fb8c00; /* Darker orange on hover */
+        }
+
+        /* Hide the register form initially */
+        .register-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Form Box -->
+        <div class="form-box">
+            <h2>Welcome</h2>
+            
+            <!-- Login Form -->
+            <form id="login-form" action="#" method="POST" class="login-form">
+                <div class="section">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+
+                <div class="section">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" action="#" method="POST" class="register-form">
+                <div class="section">
+                    <label for="register-name"> Name</label>
+                    <input type="text" id="register-name" name="register-name" required>
+                </div>
+
+               
+
+                <div class="section">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="register-email" required>
+                </div>
+
+                <div class="section">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="register-password" required>
+                </div>
+                <div class="section">
+                    <label for="pnumber">Phone Number</label>
+                    <input type="text" id="PhoneNumber" name="pnumber" required>
+                </div>
+
+                <div class="section">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="section">
+                    <label for="Role">Role</label>
+                    <select name="Role" id="role" required>
+                        <option value="Buyer">Buyer</option>
+                        <option value="Seller">Seller</option>
+                    </select>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <!-- Toggle Button -->
+            <button type="button" class="toggle-button" id="toggle-button" onclick="toggleForms()">Switch to Register</button>
+        </div>
+        
+    </div>
+
+    <script>
+        // Toggle between login and register forms
+        function toggleForms() {
+            var loginForm = document.getElementById("login-form");
+            var registerForm = document.getElementById("register-form");
+            var toggleButton = document.getElementById("toggle-button");
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                toggleButton.textContent = "Switch to Register";
+            } else {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+                toggleButton.textContent = "Switch to Login";
+            }
+        }
+
+        // Initially show the login form and hide the register form
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("register-form").style.display = "none";
+    </script>
+
+</body>
+</html>
